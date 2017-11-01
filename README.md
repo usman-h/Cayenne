@@ -44,10 +44,19 @@ This will also proved management consistency in how test is carried out, as well
 **OPTION 2**
 * Within cmd run: **mvn archetype:generate**
 * Alternatively you can run a single command containing these details e.g.
-  **mvn archetype:generate -DgroupId=prototypeTest -DartifactId=prototypeProj -DarchetypeArtifactId=archetypeProj-archetype -DinteractiveMode=false**
+  **mvn archetype:generate -DgroupId=[yourGroupID] -DartifactId=[yourArtifactId] -DarchetypeArtifactId=archetypeProj-archetype -DinteractiveMode=false**
+ 
   
 * Once this is done and built successfully take a look at your fully functioning project, ready to write automated tests against the UI, API's and Devices...
+* Then just to make sure everything is fine, within cmd go to your new project folder and run the following command **mvn clean install**
+* IF there are any issues please open up the pom.xml and replace the following lines with your **groupId** value (this is the same value you entered in before to create the project):
 
+  Line 121: Replace the following within the *packages* tag *com.usmanhussain.cayenne.step_definitions* with your **groupId** (Please keep the *step_definitions* part, only replace the text/package name before it)
+  
+  Line 122: Replace the following within the *packages* tag *com.usmanhussain.cayenne.hooks* with your **groupId** (Please keep the *hooks* part, only replace the text/package name before it)
+  
+  Line 175: Replace the following within the *mainClass* tag *com.usmanhussain.cayenne.JSONReportMerger* with your **groupId** (Please keep the *JSONReporterMerger* part, only replace the text/package name before it)
+  
 
 **NOTE:** If you feel like you want to contribute or have any changes to the Habanero test framework, please Fork the project and send your changes in via a pull request. Alternatively if you just wish to utilise it you may either download it or clone it for referance.
 
