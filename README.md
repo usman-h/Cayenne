@@ -1,18 +1,18 @@
-README for project ArchTypePOC
-===============================
+README for Cayenne
+=====================
 
 This module will allow a user or project to create a whole fully functioning automated test framework in under 2 minutes... 
 By the end of this, the project will have access to the centralised framework and some sample tests all ready for the team to begin testing.
 
 This module uses the centralised framework where all configuration is carried out. Therefore providing the project with a location where tests can be written and wiping out all the time needed to get a framework installed. 
 
-The centralised framework is found here: https://github.com/usman-h/TestAutomationFramework.git
-It can be cloned and can be worked on by forking the project. This combined with the TestAutomationFramework provide a new project/programme an extreamly setup with all the tools instantly available to them. 
-This will alos proved management consistency in how test is carried out, as well simplyfying maintenance of the framework, and dependencies.
+The centralised framework is found here: https://github.com/usman-h/Habanero.git
+It can be cloned and can be worked on by forking the project. This combined with Habanero provide a new project/programme an extremely setup with all the tools instantly available to them. 
+This will also proved management consistency in how test is carried out, as well simplifying maintenance of the framework, and dependencies.
 
 # Project creation:
 
-* First Clone this project to a location you are comfortable with, we will call it '*home*'
+* First clone this project to a location you are comfortable with, we will call it '*home*'
 * Open command prompt (cmd) and cd to *home*. You should see the POM.xml here
 * Run: **mvn clean compile** (if required) 
 * Then run: **mvn clean archetype:create-from-project**
