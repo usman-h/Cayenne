@@ -1,5 +1,5 @@
-README for Cayenne
-=====================
+Cayenne
+========
 
 This module will allow a user or project to create a whole fully functioning automated test framework in under 2 minutes... 
 By the end of this, the project will have access to the centralised framework and some sample tests all ready for the team to begin testing.
@@ -20,10 +20,53 @@ This will also proved management consistency in how test is carried out, as well
 * Run: **mvn clean install**; This will place the archetype jar in your very own *.m2\repository\org\apache\maven\archetypes* folder
 * Create a brand new folder and name it after your project
 * Within cmd, cd to the folder
+
+**Now you are able to generate a project one of two ways.**
+
+
+**OPTION 1**
 * Within cmd run: **mvn archetype:generate**
+* When this command runs it will ask you to "**Choose a number or apply filter (format: [groupId:]artifactId, case sensitive contains): 1057:**"
+
+ Then on the left hand side you will see some numbers followed by some text. Enter in the last number you see.
+ It should appear as something like this: 
+ "***1963**: local -> com.usmanhussain.cayenne:Cayenne-archetype (com.usmanhussain.cayenne - Cayenne is a set up project for any  programme or project for getting started
+        with test automation using Habanero.
+        It allows you to have a fully working and ready to use Test Automation framework in a matter of minutes. The
+        framework creates a project for the user using the Habanero project.
+        The folder definition and set up utilise the framework, 'Habanero' which can be found here:
+        https://github.com/usman-h/Habanero)*"
+        
+ In the example above you should enter in **1963**
 * As you run this command it will prompt you to fill out your *GroupID, ArtifactID, Name etc...*
+
+
+**OPTION 2**
+* Within cmd run: **mvn archetype:generate**
 * Alternatively you can run a single command containing these details e.g.
   **mvn archetype:generate -DgroupId=prototypeTest -DartifactId=prototypeProj -DarchetypeArtifactId=archetypeProj-archetype -DinteractiveMode=false**
+  
 * Once this is done and built successfully take a look at your fully functioning project, ready to write automated tests against the UI, API's and Devices...
+
+
+**NOTE:** If you feel like you want to contribute or have any changes to the Habanero test framework, please Fork the project and send your changes in via a pull request. Alternatively if you just wish to utilise it you may either download it or clone it for referance.
+
+The **Habanero** framework can be found here on GitHub: 
+**https://github.com/usman-h/Habanero**
+
+You may also use it directly in your own project by calling it from maven repository where further details can be found here:
+**https://search.maven.org/#search%7Cga%7C1%7Ccom.usmanhussain.habanero**
+
+OR
+
+**https://mvnrepository.com/artifact/com.usmanhussain.habanero/Habanero**
+
+Here you will be able to see what the latest version is, and how to call it as a dependency from your pom.xml
+For any further questions please do not hesitate to contact me.
+
+Kind regards,
+
+Usman H Hussain
+
 
 # **Happy Testing**
