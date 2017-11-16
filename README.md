@@ -42,7 +42,6 @@ This will also proved management consistency in how test is carried out, as well
 
 
 **OPTION 2**
-* Within cmd run: **mvn archetype:generate**
 * Alternatively you can run a single command containing these details e.g.
   **mvn archetype:generate -DgroupId=[yourGroupID] -DartifactId=[yourArtifactId] -DarchetypeArtifactId=archetypeProj-archetype -DinteractiveMode=false**
  
