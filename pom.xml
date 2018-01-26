@@ -239,7 +239,7 @@
         <dependency>
             <groupId>com.usmanhussain.habanero</groupId>
             <artifactId>Habanero</artifactId>
-            <version>1.0.0</version>
+            <version>1.0.7</version>
         </dependency>
     </dependencies>
 </project>
