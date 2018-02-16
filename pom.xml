@@ -121,8 +121,8 @@
                             <!-- Mandatory -->
                             <!-- Comma separated list of package names to scan for glue code -->
                             <glue>
-                                <package>com.usmanhussain.cayenne.step_definitions</package>
-                                <package>com.usmanhussain.cayenne.hooks</package>
+                                <package>${project.groupId}.step_definitions</package>
+                                <package>${project.groupId}.hooks</package>
                             </glue>
                             <!-- These are the default values -->
                             <!-- Where to output the generated Junit tests -->
@@ -176,7 +176,7 @@
                         </goals>
                         <configuration>
                             <classpathScope>test</classpathScope>
-                            <mainClass>com.usmanhussain.cayenne.JSONReportMerger</mainClass>
+                            <mainClass>${project.groupId}.JSONReportMerger</mainClass>
                             <arguments>
                                 <argument>target/cucumber_reports/regression_results</argument>
                             </arguments>
