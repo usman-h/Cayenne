@@ -72,6 +72,18 @@ OR
 Here you will be able to see what the latest version is, and how to call it as a dependency from your pom.xml
 For any further questions please do not hesitate to contact me.
 
+# How to run the tests
+
+Once the project is set up, please do the following:
+1. mvn clean install -DskipTests
+2. mvn clean test -DrunTags=@test1 -DdriverType=chrome
+
+This will allow the dummy tests to run, and you will be able to see the newly formed reports in the following folder:
+\target\cucumber-html-reports\overview-features.html (Open this file in a browser)
+
+You will also see the new reports with the detail inside them with shown, aiming to eliminate the analysis time it takes for atester to debug a failed test. 
+These changes can be seen on project **Ghost**'s page: **https://github.com/usman-h/Ghost**
+
 Kind regards,
 
 Usman H Hussain
