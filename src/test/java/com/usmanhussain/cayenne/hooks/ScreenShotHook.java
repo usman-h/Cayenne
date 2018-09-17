@@ -14,6 +14,7 @@ import org.slf4j.LoggerFactory;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.PrintWriter;
 
 public class ScreenShotHook extends BaseStepDef {
 
@@ -34,8 +35,13 @@ public class ScreenShotHook extends BaseStepDef {
             try {
                 LOG.info("Scenario FAILED... screen shot taken");
                 scenario.write(getDriver().getCurrentUrl());
+                scenario.write(getDriver().getPageSource());
                 byte[] screenShot = ((TakesScreenshot) getDriver()).getScreenshotAs(OutputType.BYTES);
                 scenario.embed(screenShot, "image/png");
+                String pageSource = getDriver().getPageSource().replace("html", "");
+                PrintWriter out = new PrintWriter("target/cucumber_reports/" + scenario.getName().replace("/", "").replace(" ", "") + ".html");
+                out.println(pageSource);
+                scenario.embed(pageSource.getBytes(), "text/plain");
                 Har har = WebDriverDiscovery.server.getHar();
                 File harFile = new File("target/cucumber_reports/" + scenario.getName().replace("/", "").replace(" ", "") + ".har");
                 har.writeTo(harFile);

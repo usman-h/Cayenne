@@ -1,4 +1,3 @@
-@wip
 Feature: feature two
 
   Scenario: scenario two point one
