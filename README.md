@@ -6,7 +6,7 @@ By the end of this, the project will have access to the centralised framework an
 
 This module uses the centralised framework where all configuration is carried out. Therefore providing the project with a location where tests can be written and wiping out all the time needed to get a framework installed. 
 
-The centralised framework is found here: https://github.com/usman-h/Habanero.git
+The centralised framework is found here: **https://github.com/usman-h/Habanero.git**
 It can be cloned and can be worked on by forking the project. This combined with Habanero provide a new project/programme an extremely setup with all the tools instantly available to them. 
 This will also proved management consistency in how test is carried out, as well simplifying maintenance of the framework, and dependencies.
 
@@ -75,8 +75,8 @@ For any further questions please do not hesitate to contact me.
 # How to run the tests
 
 Once the project is set up, please do the following:
-1. mvn clean install -DskipTests
-2. mvn clean test -DrunTags=@test1 -DdriverType=chrome
+1. _mvn clean install -DskipTests_
+2. _mvn clean test -DrunTags=@test1 -DdriverType=chrome_
 
 This will allow the dummy tests to run, and you will be able to see the newly formed reports in the following folder:
 \target\cucumber-html-reports\overview-features.html (Open this file in a browser)
