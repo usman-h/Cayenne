@@ -6,7 +6,7 @@
 
     <groupId>com.usmanhussain.cayenne</groupId>
     <artifactId>Cayenne</artifactId>
-    <version>2.0</version>
+    <version>2.0.0</version>
     <name>com.usmanhussain.cayenne:Cayenne</name>
     <description>com.usmanhussain.cayenne - Cayenne is a set up project for any programme or project for getting started
         with test automation using Habanero.
