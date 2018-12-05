@@ -76,7 +76,7 @@ For any further questions please do not hesitate to contact me.
 
 Once the project is set up, please do the following:
 1. _mvn clean install -DskipTests_
-2. _mvn clean test -Dcucumber.options="--tags @test1" -DdriverType=chrome_
+2. _mvn clean test -Dtags=@test1 -DdriverType=chrome_
 
 This will allow the dummy tests to run, and you will be able to see the newly formed reports in the following folder:
 \target\cucumber-html-reports\overview-features.html (Open this file in a browser)

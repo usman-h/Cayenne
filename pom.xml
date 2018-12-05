@@ -6,7 +6,7 @@
 
     <groupId>com.usmanhussain.cayenne</groupId>
     <artifactId>Cayenne</artifactId>
-    <version>3.0.0</version>
+    <version>4.0.0</version>
     <name>com.usmanhussain.cayenne:Cayenne</name>
     <description>com.usmanhussain.cayenne - Cayenne is a set up project for any programme or project for getting started
         with test automation using Habanero.
@@ -34,7 +34,6 @@
         <driverType>$driver</driverType>
         <generateHarReport>false</generateHarReport>
         <jenkinsStyleReports>true</jenkinsStyleReports>
-        <chromeDriverPath>${basedir}/src/main/resources/drivers/chromedriver</chromeDriverPath>
         <chromeDriverPath>${basedir}\src\main\resources\drivers\chromedriver.exe</chromeDriverPath>
         <ieDriverPath>${basedir}\src\main\resources\drivers\IEDriverServer.exe</ieDriverPath>
         <geckoDriverPath>${basedir}\src\main\resources\drivers\geckodriver.exe</geckoDriverPath>
@@ -49,6 +48,8 @@
         <checkstyle.version>6.19</checkstyle.version>
         <acceptance.tests.in.parallel>2</acceptance.tests.in.parallel>
         <logLevel>WARN</logLevel>
+        <tags>default</tags>
+        <ignoreTags>~@manual</ignoreTags>
         <include>**/*Test.class</include>
     </properties>
 
@@ -112,7 +113,7 @@
             <plugin>
                 <groupId>com.github.temyers</groupId>
                 <artifactId>cucumber-jvm-parallel-plugin</artifactId>
-                <version>4.0.0</version>
+                <version>5.0.0</version>
                 <executions>
                     <execution>
                         <id>generateRunners</id>
@@ -122,21 +123,22 @@
                         </goals>
                         <configuration>
                             <!-- Mandatory -->
-                            <!-- Comma separated list of package names to scan for glue code -->
+                            <!-- List of package names to scan for glue code. -->
                             <glue>
                                 <package>${project.groupId}.step_definitions</package>
                                 <package>com.usmanhussain.habanero.framework.hooks</package>
                             </glue>
-                            <!-- These are the default values -->
-                            <!-- Where to output the generated Junit tests -->
+                            <!-- These are optional, with the default values -->
+                            <!-- Where to output the generated tests -->
                             <outputDirectory>${project.build.directory}/generated-test-sources/features
                             </outputDirectory>
-                            <!-- The diectory containing your feature files.  -->
+                            <!-- The directory, which must be in the root of the runtime classpath, containing your feature files.  -->
                             <featuresDirectory>${features}</featuresDirectory>
                             <!-- Directory where the cucumber report files shall be written  -->
                             <cucumberOutputDir>${project.build.directory}/cucumber_reports/regression_results
                             </cucumberOutputDir>
-                            <!-- Comma separated list of output formats -->
+                            <!-- List of cucumber plugins. When none are provided the json formatter is used. For more
+                                 advanced usage see section about configuring cucumber plugins -->
                             <plugins>
                                 <plugin>
                                     <name>json</name>
@@ -147,23 +149,29 @@
                                 <plugin>
                                     <name>junit</name>
                                 </plugin>
+                                <plugin>
+                                    <name>rerun</name>
+                                </plugin>
                             </plugins>
                             <!-- CucumberOptions.strict property -->
                             <strict>true</strict>
                             <!-- CucumberOptions.monochrome property -->
                             <monochrome>true</monochrome>
-                            <!-- The tags to run, maps to CucumberOptions.tags property -->
+                            <!-- The tags to run, maps to CucumberOptions.tags property. Default is no tags. -->
+                            <tags>
+                                <tag>${tags}</tag>
+                                <tag>${ignoreTags}</tag>
+                            </tags>
+                            <!-- The naming scheme to use for the generated test classes.  One of ['simple', 'feature-title', 'pattern'] -->
                             <namingScheme>pattern</namingScheme>
-                            <!-- The class naming pattern to use. Only required/used if naming scheme is 'pattern'.-->
+                            <!-- The class naming pattern to use.  Only required/used if naming scheme is 'pattern'.-->
                             <namingPattern>{f}_Parallel{c}Test</namingPattern>
                             <!-- One of [SCENARIO, FEATURE]. SCENARIO generates one runner per scenario.  FEATURE generates a runner per feature. -->
                             <parallelScheme>SCENARIO</parallelScheme>
-                            <!-- If set to true, only feature files containing the required tags shall be generated. -->
-                            <!-- Excluded tags (~@notMe) are ignored. -->
-                            <!--<tags>-->
-                            <!--<tag>~@manual</tag>-->
-                            <!--<tag>~@wip</tag>-->
-                            <!--</tags>-->
+                            <!-- Specify a custom template for the generated sources (this is a path relative to the project base directory) -->
+                            <customVmTemplate>src/main/resources/cucumber-junit-runner.java.vm</customVmTemplate>
+                            <!-- Specify a custom package name for generated sources. Default is no package.-->
+                            <packageName>com.directlinegroup</packageName>
                         </configuration>
                     </execution>
                 </executions>
@@ -217,7 +225,9 @@
                         <configuration>
                             <projectName>cucumber-jvm</projectName>
                             <outputDirectory>${project.build.directory}</outputDirectory>
-                            <cucumberOutput>${project.build.directory}/cucumber_reports/regression_results/cucumber.json</cucumberOutput>
+                            <cucumberOutput>
+                                ${project.build.directory}/cucumber_reports/regression_results/cucumber.json
+                            </cucumberOutput>
                         </configuration>
                     </execution>
                 </executions>
@@ -260,7 +270,7 @@
         <dependency>
             <groupId>com.usmanhussain.habanero</groupId>
             <artifactId>Habanero</artifactId>
-            <version>1.4.1</version>
+            <version>1.4.2</version>
         </dependency>
     </dependencies>
 </project>
